@@ -1,5 +1,4 @@
 import { carritoIndex } from "./carritoIndex.js";
-/* import { productos } from "./stock.js"; */
 import { getData } from "./getData.js";
 
 export const mostrarProductos = async () => {
