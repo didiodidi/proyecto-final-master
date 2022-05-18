@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     carritoStorage.map((producto) => {
         let div = document.createElement("div");
         div.classList.add("productoEnCarrito");
-        div.innerHTML = `<p class="vaciar">${producto.nombre}</p>
-                                <p class="vaciar">Precio: ${producto.precio}</p> 
-                                <p class="vaciar">id="cantidad${producto.id}">Cantidad: ${producto.cantidad}</p>
-                                <button id="eliminar${producto.id}  class="boton-eliminar vaciar" ><i class="fa-solid fa-trash-can"></i></button>
+        div.innerHTML =        `<p >${producto.nombre}</p>
+                                <p >Precio:${producto.precio}</p> 
+                                <p id="cantidad${producto.id}">Cantidad: ${producto.cantidad}</p>
+                                <button id="eliminar${producto.id}" class="boton-eliminar"><i class="fa-solid fa-trash-can"></i></button>
                                 `;
       contenedorCarrito.appendChild(div);
 

@@ -24,8 +24,22 @@ botonVaciar.addEventListener('click',()=>{
       })}else{
       const arrayCompras = carritoDeCompras
       arrayCompras.length = 0;
+      
     //--
-    let timerInterval
+  
+
+    Swal.fire({
+      icon: 'question',
+      title: 'Usted desea realizar la compra?',
+      showDenyButton: true,
+      confirmButtonText: 'Aceptar',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        //Swal.fire('Usted realizo la compra con exito!', '', 'success')
+
+        let timerInterval
         Swal.fire({
       title: 'La compra esta siendo procesada',
       html: 'Ejecutando por favor espere... <b></b> milliseconds.',
@@ -42,10 +56,17 @@ botonVaciar.addEventListener('click',()=>{
     clearInterval(timerInterval)
     }
       }).then((result) => {
-  /* Read more about handling dismissals below */
+  
     if (result.dismiss === Swal.DismissReason.timer) {
     console.log('I was closed by the timer')
     }
+    }) 
+
+
+
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
     })
     actualizarCarrito(arrayCompras);
     vaciarDom();
@@ -57,8 +78,6 @@ botonVaciar.addEventListener('click',()=>{
     //Forma alternativa de resetear el productoEnCarrito del DOMContentLoaded--->>
     // location.reload();
 })
-
-
 //Borre el productoEnCarrito del DOM con la siguente funcion ,de la linea 15 del archivo index.js.Este persistia en el DOM por el DOMContentLoaded  --->>
 function vaciarDom () {
   let borrar = document.querySelectorAll('.productoEnCarrito');
@@ -84,7 +103,8 @@ export const eliminarProductoCarrito = (productoId, productoNombre ) => {
     carritoDeCompras = JSON.parse(localStorage.getItem("carrito"));
   }
   let botonEliminar = document.getElementById(`eliminar${productoId}`);
-  botonEliminar.addEventListener('click', () => {
+
+  botonEliminar?.addEventListener('click', () => {
     swal.fire({
       title:`Se elimino el producto con exito`,
       icon: 'success',
@@ -123,7 +143,7 @@ const renderProductoCarrito =(productoId) => {
   div.innerHTML = ` <p>${producto.nombre}</p>
                     <p>Precio:${producto.precio}</p>
                     <p id=cantidad${producto.id}>Cantidad:${producto.cantidad}</p>
-                    <button id=eliminar${producto.id} class="boton-eliminar"><i class="fa-solid fa-trash-can"></i></i></button>
+                    <button id="eliminar${producto.id}" class="boton-eliminar"><i class="fa-solid fa-trash-can"></i></button>
                   `
 contenedorCarrito.appendChild(div);
 actualizarCarrito(carritoDeCompras);
