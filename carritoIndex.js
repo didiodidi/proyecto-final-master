@@ -4,8 +4,7 @@ import { productos } from "./stock.js";
 const contenedorCarrito = document.getElementById("carrito-contenedor");
 const cantidadSteps = 2;
 let stepActual = 1;
-// --->Funcion comprar , ejecuta el boton comprar del modal:
-const botonVaciar = document.getElementById("comprar");
+
 
 let carritoDeCompras = [];
 
@@ -13,12 +12,31 @@ const botonContinuar = document.getElementById("continuar");
 
 const terminarCompra = document.getElementById("terminar-compra");
 
+const botonVaciarCarrito = document.getElementById("vaciar");
+
+//Boton vaciar carrito
+
+botonVaciarCarrito.addEventListener('click',()=>{
+  const arrayCompras = carritoDeCompras
+  arrayCompras.length = 0;
+
+  actualizarCarrito(arrayCompras);
+  vaciarDom();
+})
+
+// --->Funcion Terminar Compra:
 terminarCompra.addEventListener("click", (e) => {
   console.log("terminar compra");
   stepActual = 1;
-  location.reload();
+  const arrayCompras = carritoDeCompras
+  arrayCompras.length = 0;
+  location.reload()
+  actualizarCarrito(arrayCompras);
+  vaciarDom()
 });
 
+
+//---- ---- ---- ----
 function show(elem) {
   elem.classList.remove("hidden");
 }
@@ -72,15 +90,6 @@ botonContinuar.addEventListener("click", (e) => {
     });
   } else {
     continuarAlSiguienteStep(e);
-    //Intentar crear el metodo de pago en otro modal.
-
-    // const modalComprar = document.querySelector('.modal-continuar');
-    //       modalComprar.document.createElement("div")
-    //       modalComprar.innerHTML = `<p>Hola</p>`
-
-    //Poner El metodo de pago debajo del modal
-    const modalComprar = document.getElementById("metodoDePago");
-    modalComprar.innerHTML = `<h2>HOLA</h2>`;
   }
 });
 
@@ -157,4 +166,5 @@ const renderProductoCarrito = (productoId) => {
                   `;
   contenedorCarrito.appendChild(div);
   actualizarCarrito(carritoDeCompras);
+  
 };

@@ -4,7 +4,7 @@ const modalContenedor = document.querySelector('.modal-container');
 const abrirCarrito = document.getElementById('open');
 const cerrarCarrito = document.getElementById('cerrar');
 const modalCarrito = document.querySelector('.modal-carrito');
-const modalComprar = document.getElementById('comprar');
+// const modalContinuar = document.getElementById('continuar');
 
 
 
@@ -17,17 +17,17 @@ cerrarCarrito.addEventListener('click', () => {
     modalContenedor.classList.remove('modal-active');
 })
 
-modalContenedor.addEventListener('click',() =>{
-    cerrarCarrito.click();
-})
+// modalContenedor.addEventListener('click',() =>{
+//     cerrarCarrito.click();
+// })
 
 modalCarrito.addEventListener('click', (e) =>{
     e.stopPropagation();
 })
 
-modalComprar.addEventListener('click', ()=>{
-    cerrarCarrito.click();
-})
+// modalContinuar.addEventListener('click', ()=>{
+//     cerrarCarrito.click();
+// })
 
 
 

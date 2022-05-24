@@ -48,6 +48,7 @@
             <!-- Efectuar Compra -->
             <button id="cerrar" class="btn-modal">Cerrar</button>
             <button id="continuar" class="btn-modal">Continuar</button>
+            <button id="vaciar" class="btn-modal">Vaciar</button>
             <!-- Precio: -->
             <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p>
         </div>
@@ -56,8 +57,8 @@
             STEP 2:
         -->
         <div class="modal-carrito step2 hidden"> 
-            <div id="metodoDePago">
-            <h4>HOLA, CONFIRMA!</h4>
+            <div class="metodo-de-pago" id="metodoDePago">
+            <h4>Finalizar compra</h4>
              <!-- Metodo de pago -->
              <form class="input-container">
                 <input type="checkbox" name="Efectivo" id="efectivo" value="1">
@@ -68,21 +69,25 @@
             </form>
             <div class="input-group">
                 <label for="mail">E-mail</label>
-                <input type="mail" placeholder="jamessmith@gmail.com" name="mail" id="mail">
+                <input type="mail" placeholder="tukero89@gmail.com" name="mail" id="mail">
              </div>
              <div class="input-group">
-                <label for="phone">Phone</label>
-                <input type="text" placeholder="06 XX XX XX XX" name="phone" id="phone">
+                <label for="phone">Telefono</label>
+                <input type="text" placeholder="01155324528" name="phone" id="phone">
              </div>
              <div class="input-group">
-                <label for="address">Address</label>
-                <input type="text" placeholder="221B Baker Street" name="address" id="address">
+                <label for="address">Dirección</label>
+                <input type="text" placeholder="jb.justo 2550 3r A" name="address" id="address">
              </div>
              <div class="input-group">
-                <label for="country">Country</label>
-                <input type="text" placeholder="United States" name="country" id="country">
+                <label for="country">Pais</label>
+                <input type="text" placeholder="Argentina ,CABA" name="country" id="country">
              </div>
-            <button id="terminar-compra">Terminar compra</button>
+             <div class="input-group">
+                <label for="cbu">CBU:</label>
+                <input type="text" placeholder="Ingrese su CBU" name="cbu" id="cbu">
+             </div>
+            <button class="btn-modal" id="terminar-compra">Terminar compra</button>
             </div>
         </div>
 

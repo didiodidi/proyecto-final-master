@@ -80,6 +80,7 @@ header h1{
   margin-bottom: 16rem;
 }
 
+
 .btn-modal{
   width: 5rem;
   height: 2rem;
@@ -134,6 +135,23 @@ header h1{
   text-shadow: 0px 0px 3px rgba(30, 143, 255, 0.568) ;
 }
 
+.input-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.metodo-de-pago input{
+  margin: 10px;
+}
+
+.metodo-de-pago button{
+  width: 10rem;
+}
+
+.metodo-de-pago label{
+  margin: 10px;
+}
 
 
 
