@@ -59,7 +59,9 @@ header h1{
   z-index: 100;
 } 
 
-
+.hidden {
+  display: none;
+}
 .modal-active {
   opacity: 1;
   visibility: visible;
