@@ -1,17 +1,16 @@
 //import { productos } from "./stock.js";
 
-const localStorageCarrito = JSON.parse(localStorage.getItem("carrito"));
-
-            const precioTotalCarrito = localStorageCarrito.reduce(
-                (acc, el) => acc + el.precio,
-                0
-            );
+const getTotalCarrito = () => {
+    const localStorageCarrito = JSON.parse(localStorage.getItem("carrito"));
+    return localStorageCarrito.reduce((acc, el) => acc + el.precio, 0);
+  };
 
             function limpiarMetodoDePago (){
                 const divALimpiar = document.querySelector('.limpiar');
                 divALimpiar && divALimpiar.remove()
                 //divALimpiar?.remove();
             }
+
 
 // Controlo los botones para poder seleccionar el metodo de compra.
     const metodoEfectivo = document.getElementById("metodoEfectivo");
@@ -26,7 +25,7 @@ const localStorageCarrito = JSON.parse(localStorage.getItem("carrito"));
                 const div = document.createElement("div");
             //Operador ++
             div.innerHTML +=`<div class="limpiar" style="width: 18rem;">
-                                    <div>1 pago de ${precioTotalCarrito}</div>
+                                    <div>1 pago de ${getTotalCarrito()}</div>
                             </div>`;
             metodoEfectivo.appendChild(div);
             
@@ -43,15 +42,15 @@ const localStorageCarrito = JSON.parse(localStorage.getItem("carrito"));
                 div.innerHTML +=`<div class="limpiar" style="width: 18rem;">
                                     <div>
                                         <input type="radio" name="Tarjeta" id="3pagos" value="2">
-                                        <label for="3pagos">   3 pagos de ${precioTotalCarrito / 3}  </label>
+                                        <label for="3pagos">   3 pagos de ${Math.round(getTotalCarrito() / 3 )}  </label>
                                     </div>
                                     <div>
                                         <input type="radio" name="Tarjeta" id="6pagos" value="2">
-                                        <label for="6pagos">   6 pagos de ${precioTotalCarrito / 6}  </label>
+                                        <label for="6pagos">   6 pagos de ${Math.round(getTotalCarrito() / 6 )}  </label>
                                     </div>
                                     <div>
                                         <input type="radio" name="Tarjeta" id="12pagos" value="2">
-                                        <label for="12pagos">   12 pagos de ${precioTotalCarrito / 12}  </label>
+                                        <label for="12pagos">   12 pagos de ${Math.round(getTotalCarrito() / 12 )}  </label>
                                     </div>
                                     
                                     
