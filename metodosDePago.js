@@ -3,7 +3,7 @@
 const getTotalCarrito = () => {
     const localStorageCarrito = JSON.parse(localStorage.getItem("carrito"));
     return localStorageCarrito.reduce((acc, el) => acc + el.precio, 0);
-  };
+    };
 
             function limpiarMetodoDePago (){
                 const divALimpiar = document.querySelector('.limpiar');
@@ -25,7 +25,7 @@ const getTotalCarrito = () => {
                 const div = document.createElement("div");
             //Operador ++
             div.innerHTML +=`<div class="limpiar" style="width: 18rem;">
-                                    <div>1 pago de ${getTotalCarrito()}</div>
+                                    <div>1 pago de ${getTotalCarrito()}$ ars</div>
                             </div>`;
             metodoEfectivo.appendChild(div);
             
@@ -54,10 +54,8 @@ const getTotalCarrito = () => {
                                     </div>
                                 </div>`;
                 metodoTarjeta.appendChild(div);
-
-
                 }
-            } 
+        } 
 
             
             

@@ -28,6 +28,12 @@ botonVaciarCarrito.addEventListener('click',()=>{
 })
 
 // --->Funcion Terminar Compra:
+
+
+
+
+
+//---
 terminarCompra.addEventListener("click", (e) => {
   console.log("terminar compra");
   stepActual = 1;
