@@ -27,32 +27,60 @@ botonVaciarCarrito.addEventListener('click',()=>{
   vaciarDom();
 })
 
-// --->Funcion Terminar Compra:
+// --->Funcion validar compra:
 
+let mail = document.getElementById("mail");
+let numero = document.getElementById("phone");
+let direccion = document.getElementById("address");
+let pais = document.getElementById("country");
+let cbu = document.getElementById("cbu");
+let error = document.getElementById("error");
+error.style.color ='red';
 
+let form = document.getElementById("formulario");
+terminarCompra.addEventListener('click', function(evt){
+  evt.preventDefault();
+  let mensajesError = [];
 
+    if(mail.value === null || mail.value ===''){
+    mensajesError.push('Ingresa su email');
+  }
+    if(numero.value === null || numero.value ===''){
+    mensajesError.push('Ingresa su numero');
+  }
+    if(direccion.value === null || direccion.value ===''){
+    mensajesError.push('Ingresa su direccion');
+  }
+    if(pais.value === null || pais.value ===''){
+    mensajesError.push('Ingrese su pais');
+  }
+    if(cbu.value === null || cbu.value ===''){
+    mensajesError.push('Ingrese su cbu');
+  }
+  error.innerHTML = mensajesError.join(', ');
+});
 
 
 //---
 terminarCompra.addEventListener("click", (e) => {
   console.log("terminar compra");
-  stepActual = 1;
-  const arrayCompras = carritoDeCompras
-  arrayCompras.length = 0;
+  // stepActual = 1;
+  // const arrayCompras = carritoDeCompras
+  // arrayCompras.length = 0;
   
-  actualizarCarrito(arrayCompras);
-  vaciarDom()
+  // actualizarCarrito(arrayCompras);
+  // vaciarDom()
 
   
 
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'La compra se a realizado con exito.',
-    showConfirmButton: false,
-    timer: 2000
-  })
-  setTimeout(function(){location.reload()},2000)
+  // Swal.fire({
+  //   position: 'center',
+  //   icon: 'success',
+  //   title: 'La compra se a realizado con exito.',
+  //   showConfirmButton: false,
+  //   timer: 2000
+  // })
+  // setTimeout(function(){location.reload()},2000)
   
 
 });
