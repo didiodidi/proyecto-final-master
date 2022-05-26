@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    /* outline:1px solid red; */
 }
 
 header{
@@ -136,13 +137,20 @@ header h1{
 }
 
 .input-group{
+  width: 17rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:space-between;
+  align-content: center;
+  margin: 0 auto;
 }
 
 .metodo-de-pago input{
   margin: 10px;
+  text-align: center;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  border-bottom:1px solid rgba(30, 143, 255, 0.568);
 }
 
 .metodo-de-pago button{
@@ -152,6 +160,16 @@ header h1{
 .metodo-de-pago label{
   margin: 10px;
 }
+
+
+.limpiar{
+  display: flex;
+  /* flex-direction: column;  */
+  margin: 0 auto;
+  align-items: flex-start; 
+}
+
+
 
 
 

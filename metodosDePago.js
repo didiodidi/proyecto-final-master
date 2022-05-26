@@ -42,20 +42,16 @@ const getTotalCarrito = () => {
                 div.innerHTML +=`<div class="limpiar" style="width: 18rem;">
                                     <div>
                                         <input type="radio" name="Tarjeta" id="3pagos" value="2">
-                                        <label for="3pagos">   3 pagos de ${Math.round(getTotalCarrito() / 3 )}$ ars </label>
+                                        <label for="3pagos">   3 pagos de: ${Math.round(getTotalCarrito() / 3 )}$ ars sin interes.</label>
                                     </div>
                                     <div>
                                         <input type="radio" name="Tarjeta" id="6pagos" value="2">
-                                        <label for="6pagos">   6 pagos de ${Math.round(getTotalCarrito() / 6 )}$ ars  </label>
+                                        <label for="6pagos">   6 pagos de: ${Math.round(getTotalCarrito() / 6 )}$ ars sin interes.</label>
                                     </div>
                                     <div>
                                         <input type="radio" name="Tarjeta" id="12pagos" value="2">
-                                        <label for="12pagos">   12 pagos de ${Math.round(getTotalCarrito() / 12 )}$ ars  </label>
+                                        <label for="12pagos">   12 pagos de: ${Math.round(getTotalCarrito() / 12 )}$ ars sin interes.</label>
                                     </div>
-                                    
-                                    
-
-
                                 </div>`;
                 metodoTarjeta.appendChild(div);
 

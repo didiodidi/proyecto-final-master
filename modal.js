@@ -5,6 +5,7 @@ const abrirCarrito = document.getElementById('open');
 const cerrarCarrito = document.getElementById('cerrar');
 const modalCarrito = document.querySelector('.modal-carrito');
 // const modalContinuar = document.getElementById('continuar');
+const cancelarCompra = document.getElementById('cancelar')
 
 
 
@@ -28,6 +29,7 @@ modalCarrito.addEventListener('click', (e) =>{
 // modalContinuar.addEventListener('click', ()=>{
 //     cerrarCarrito.click();
 // })
+
 
 
 

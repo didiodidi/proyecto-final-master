@@ -12,7 +12,10 @@ const botonContinuar = document.getElementById("continuar");
 
 const terminarCompra = document.getElementById("terminar-compra");
 
+const cancelarCompra = document.getElementById("cancelar-compra")
+
 const botonVaciarCarrito = document.getElementById("vaciar");
+
 
 //Boton vaciar carrito
 
@@ -30,10 +33,48 @@ terminarCompra.addEventListener("click", (e) => {
   stepActual = 1;
   const arrayCompras = carritoDeCompras
   arrayCompras.length = 0;
-  location.reload()
+  
   actualizarCarrito(arrayCompras);
   vaciarDom()
+
+  
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'La compra se a realizado con exito.',
+    showConfirmButton: false,
+    timer: 2000
+  })
+  setTimeout(function(){location.reload()},2000)
+  
+
 });
+
+//--->Funcion Cancelar Compra:
+cancelarCompra.addEventListener("click", (e) => {
+  console.log("terminar compra");
+  stepActual = 1;
+  const arrayCompras = carritoDeCompras
+  arrayCompras.length = 0;
+  actualizarCarrito(arrayCompras);
+  vaciarDom()
+  
+
+  Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title: 'La compra a sido cancelada.',
+    showConfirmButton: false,
+    timer: 2000
+  })
+  setTimeout(function(){location.reload()},2000)
+  
+});
+
+
+
+
 
 
 //---- ---- ---- ----
@@ -51,6 +92,8 @@ function irAlStep(stepNumber) {
   let stepsAEsconder = document.getElementsByClassName("modal-carrito");
   let steps = document.getElementsByClassName(`step${stepActual}`);
 
+  //------
+
   //Esconder los steps
   for (let i = 0; i < stepsAEsconder.length; ++i) {
     hide(stepsAEsconder[i]);
@@ -61,20 +104,6 @@ function irAlStep(stepNumber) {
     show(steps[i]);
   }
 
-  // //Si alcanzamos el ultimo step
-  // if (stepActual === cantidadSteps) {
-  //   disable(botonContinuar);
-  //   // show(submitButton);
-  // }
-
-  // //else if first step
-  // else if (stepActual === 1) {
-  //   enable(botonContinuar);
-  //   // hide(submitButton);
-  // } else {
-  //   enable(botonContinuar);
-  //   // hide(submitButton);
-  // }
 }
 
 function continuarAlSiguienteStep(e) {
