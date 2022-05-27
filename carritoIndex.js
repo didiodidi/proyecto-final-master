@@ -10,11 +10,14 @@ let carritoDeCompras = [];
 
 const botonContinuar = document.getElementById("continuar");
 
-const terminarCompra = document.getElementById("terminar-compra");
-
 const cancelarCompra = document.getElementById("cancelar-compra")
 
 const botonVaciarCarrito = document.getElementById("vaciar");
+
+const form = document.getElementById("form");
+
+const terminarCompra = document.getElementById("terminar-compra");
+
 
 
 //Boton vaciar carrito
@@ -29,27 +32,31 @@ botonVaciarCarrito.addEventListener('click',()=>{
 
 // --->Funcion validar compra:
 
+
+
 let mail = document.getElementById("mail");
 let numero = document.getElementById("phone");
 let direccion = document.getElementById("address");
 let pais = document.getElementById("country");
 let cbu = document.getElementById("cbu");
 let error = document.getElementById("error");
+// let comprar = document.querySelector(".comprar")
 error.style.color ='red';
 
-let form = document.getElementById("formulario");
-terminarCompra.addEventListener('click', function(evt){
+
+
+  terminarCompra.addEventListener('click', function validarForm (evt){
   evt.preventDefault();
   let mensajesError = [];
-
+  console.log("pasa algo")
     if(mail.value === null || mail.value ===''){
-    mensajesError.push('Ingresa su email');
+    mensajesError.push('Ingrese su email');
   }
     if(numero.value === null || numero.value ===''){
-    mensajesError.push('Ingresa su numero');
+    mensajesError.push('Ingrese su numero de telefono');
   }
     if(direccion.value === null || direccion.value ===''){
-    mensajesError.push('Ingresa su direccion');
+    mensajesError.push('Ingrese su direccion');
   }
     if(pais.value === null || pais.value ===''){
     mensajesError.push('Ingrese su pais');
@@ -58,35 +65,33 @@ terminarCompra.addEventListener('click', function(evt){
     mensajesError.push('Ingrese su cbu');
   }
   error.innerHTML = mensajesError.join(', ');
+
+  if (mensajesError == 0){
+    terminarCompra.addEventListener("click", function compraConfirm(evt){
+    console.log("terminar compra");
+    stepActual = 1;
+    const arrayCompras = carritoDeCompras
+    arrayCompras.length = 0;
+    
+    actualizarCarrito(arrayCompras);
+    vaciarDom()
+  
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'La compra se a realizado con exito.',
+      showConfirmButton: false,
+      timer: 2000
+    })
+    setTimeout(function(){location.reload()},2000)
+  });
+  }
 });
 
 
-//---
-terminarCompra.addEventListener("click", (e) => {
-  console.log("terminar compra");
-  // stepActual = 1;
-  // const arrayCompras = carritoDeCompras
-  // arrayCompras.length = 0;
-  
-  // actualizarCarrito(arrayCompras);
-  // vaciarDom()
-
-  
-
-  // Swal.fire({
-  //   position: 'center',
-  //   icon: 'success',
-  //   title: 'La compra se a realizado con exito.',
-  //   showConfirmButton: false,
-  //   timer: 2000
-  // })
-  // setTimeout(function(){location.reload()},2000)
-  
-
-});
 
 //--->Funcion Cancelar Compra:
-cancelarCompra.addEventListener("click", (e) => {
+cancelarCompra.addEventListener("click", () => {
   console.log("terminar compra");
   stepActual = 1;
   const arrayCompras = carritoDeCompras
